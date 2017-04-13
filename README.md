@@ -70,17 +70,21 @@ git diff readme.txt 如下：
   
  如上，我们已经学会了修改文件，现在我继续对readme.txt文件进行修改，再增加一行
 
-内容为33333333333333.继续执行命令如下：  
-![](http://ww1.sinaimg.cn/mw690/6941baebgw1eloyql1473j20cp03vdga.jpg)  
-现在我已经对readme.txt文件做了三次修改了，那么我现在想查看下历史记录，如何查呢？我们现在可以使用命令 git log 演示如下所示：  
+内容为33333333333333.继续执行命令如下：    
+
+![](http://ww1.sinaimg.cn/mw690/6941baebgw1eloyql1473j20cp03vdga.jpg)    
+
+现在我已经对readme.txt文件做了三次修改了，那么我现在想查看下历史记录，如何查呢？我们现在可以使用命令 git log 演示如下所示：   
+ 
 ![](http://ww2.sinaimg.cn/mw690/6941baebgw1eloyqd9m1dj20gt08ggn8.jpg)  
 git log命令显示从最近到最远的显示日志，我们可以看到最近三次提交，最近的一次是,增加内容为333333.上一次是添加内容222222，第一次默认是 111111.如果嫌上面显示的信息太多的话，我们可以使用命令 git log –pretty=oneline 演示如下：  
 ![](http://ww1.sinaimg.cn/mw690/6941baebgw1eloyqc3ziwj20gs02paai.jpg)  
- 现在我想使用版本回退操作，我想把当前的版本回退到上一个版本，要使用什么命令呢？可以使用如下2种命令，第一种是：git reset  –hard HEAD^ 那么如果要回退到上上个版本只需把HEAD^ 改成 HEAD^^ 以此类推。那如果要回退到前100个版本的话，使用上面的方法肯定不方便，我们可以使用下面的简便命令操作：git reset  –hard HEAD~100 即可。未回退之前的readme.txt内容如下：  
+ 现在我想使用版本回退操作，我想把当前的版本回退到上一个版本，要使用什么命令呢？可以使用如下2种命令，第一种是：git reset  -–hard HEAD^ 那么如果要回退到上上个版本只需把HEAD^ 改成 HEAD^^ 以此类推。那如果要回退到前100个版本的话，使用上面的方法肯定不方便，我们可以使用下面的简便命令操作：git reset  –hard HEAD~100 即可。未回退之前的readme.txt内容如下：  
 ![](http://ww3.sinaimg.cn/mw690/6941baebgw1eloyqavyf7j20ch04laap.jpg)  
 如果想回退到上一个版本的命令如下操作：  
 ![](http://ww4.sinaimg.cn/mw690/6941baebgw1eloyqa5xjfj20ct02xaad.jpg)  
-再来查看下 readme.txt内容如下：通过命令type readme.txt查看!http://ww3.sinaimg.cn/mw690/6941baebgw1eloyq9fck2j20c402d74c.jpg可以看到，内容已经回退到上一个版本了。我们可以继续使用git log 来查看下历史记录信息，如下：  
+再来查看下 readme.txt内容如下：通过命令type readme.txt查看  
+![]http://ww3.sinaimg.cn/mw690/6941baebgw1eloyq9fck2j20c402d74c.jpg可以看到，内容已经回退到上一个版本了。我们可以继续使用git log 来查看下历史记录信息，如下：  
 !![](http://ww2.sinaimg.cn/mw690/6941baebgw1eloyq6bhrlj20dc063dgk.jpg)  
 我们看到 增加333333 内容我们没有看到了，但是现在我想回退到最新的版本，如：有333333的内容要如何恢复呢？我们可以通过版本号回退，使用命令方法如下：
 
@@ -91,8 +95,10 @@ git reset  –hard 版本号 ，但是现在的问题假如我已经关掉过一
 
 git reset  –hard 6fcfc89来恢复了。演示如下：  
 ![](http://ww3.sinaimg.cn/mw690/6941baebgw1eloyq4m3oqj20e104974t.jpg)  
-可以看到 目前已经是最新的版本了。
-###三：理解工作区与暂存区的区别？
+可以看到 目前已经是最新的版本了。  
+
+###三：理解工作区与暂存区的区别？  
+
 工作区：就是你在电脑上看到的目录，比如目录下testgit里的文件(.git隐藏目录版本库除外)。或者以后需要再新建的目录文件等等都属于工作区范畴。
 
    版本库(Repository)：工作区有一个隐藏目录.git,这个不属于工作区，这是版本库。其中版本库里面存了很多东西，其中最重要的就是stage(暂存区)，还有Git为我们自动创建了第一个分支master,以及指向master的一个指针HEAD。
